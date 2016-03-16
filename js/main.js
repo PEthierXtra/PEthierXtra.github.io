@@ -6,7 +6,7 @@ if ('serviceWorker' in navigator) {
             userVisibleOnly: true
         }).then(function (sub) {
             console.log('endpoint:', sub.endpoint);
-			alert(sub.endpoint);
+			window.prompt("RegistrationID:" , sub.endpoint);
         });
     }).catch(function (error) {
         console.log(':^(', error);
