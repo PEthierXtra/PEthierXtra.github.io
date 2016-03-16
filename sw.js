@@ -12,7 +12,7 @@ self.addEventListener('push', function (event) {
   event.waitUntil(
     self.registration.showNotification(title, {
       body: 'Someone just viewed your profile.',
-      icon: './images/icon.png',
+      icon: './img/icon.png',
       tag: 'my-tag',
 	  vibrate:  [300, 100, 400]
     }));
@@ -33,6 +33,6 @@ self.addEventListener('notificationclick', function(event) {
         return client.focus();
     }
     if (clients.openWindow)
-      return clients.openWindow('http://test1.mobile.squirt.org/display/pethier');
+      return clients.openWindow('notification.html');
   }));
 });
