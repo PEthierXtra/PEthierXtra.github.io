@@ -33,6 +33,6 @@ self.addEventListener('notificationclick', function(event) {
         return client.focus();
     }
     if (clients.openWindow)
-      return clients.openWindow('/');
+      return clients.openWindow('http://test1.mobile.squirt.org/display/pethier');
   }));
 });
