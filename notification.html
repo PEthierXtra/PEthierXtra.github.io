@@ -3,9 +3,54 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Squirt Notification page</title>
+    <title>Squirt Notification redirect page</title>
+	<style>
+		body{
+			background-color: black;
+			color: white;
+		}
+	</style>
+	<script type="text/javascript" >
+		function getParameterByName(name, url) {
+			if (!url) url = window.location.href;
+			url = url.toLowerCase(); // This is just to avoid case sensitiveness  
+			name = name.replace(/[\[\]]/g, "\\$&").toLowerCase();// This is just to avoid case sensitiveness for query parameter name
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+		
+		var rootSite = "http://dev.mobile.squirt.org/";
+		
+		//retrieve the type of notification... then redirect to the right page
+		var type=getParameterByName('nType');
+		switch(type){
+			case 'cruise':
+				window.location.href ='Profile/GuysOnline?Lookforsex=-998';
+				break;
+			
+			case 'chat':
+				window.location.href ='Chat/Index';
+				break;
+			
+			case 'mail':
+				window.location.href ='email';
+				break;
+			
+			case 'buddyOnline':
+				window.location.href ='Profile/GuysOnline?Lookforsex=-999';
+			break;
+			
+			default:
+			
+		}
+		window.location.href = 'http://dev.mobile.squirt.org/Profile/GuysOnline?Lookforsex=-998';
+	</script>
 </head>
 <body>
-You have clicked a Cruise Notification
+Please wait, redirecting...
+
 </body>
 </html>
