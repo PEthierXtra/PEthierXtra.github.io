@@ -33,6 +33,6 @@ self.addEventListener('notificationclick', function(event) {
         return client.focus();
     }
     if (clients.openWindow)
-      return clients.openWindow('notification.html');
+      return clients.openWindow('notification.html?nType=cruise');
   }));
 });
