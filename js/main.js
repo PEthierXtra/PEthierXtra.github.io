@@ -10,6 +10,7 @@ if ('serviceWorker' in navigator) {
         reg.pushManager.subscribe({
             userVisibleOnly: true
         }).then(function (sub) {
+            console.log(sub.toJSON());
             console.log('endpoint:', sub.endpoint);
             //window.prompt("RegistrationID:" , sub.endpoint);
             //Redirect to the proper place to register the device passing in the
