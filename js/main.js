@@ -10,13 +10,20 @@ if ('serviceWorker' in navigator) {
         reg.pushManager.subscribe({
             userVisibleOnly: true
         }).then(function (sub) {
-            console.log(sub.toJSON());
+            var subscriptionJSON = sub.toJSON();
+            console.log(subscriptionJSON);
             console.log('endpoint:', sub.endpoint);
             //window.prompt("RegistrationID:" , sub.endpoint);
             //Redirect to the proper place to register the device passing in the
             //parsed value from the EndPoint
             var parseArray = sub.endpoint.split("/");
-            window.location = "http://dev.mobile.squirt.org/Profile/SetDeviceId?deviceId=" + parseArray[parseArray.length - 1];
+            if (subscriptionJSON.auth != null) {
+                window.location = "http://dev.mobile.squirt.org/Profile/SetDeviceId?deviceId=" + parseArray[parseArray.length - 1] +
+                    "&auth=" + subscriptionJSON.auth +
+                    "&p256dh=" + subscriptionJSON.p256dh;
+            } else {
+                window.location = "http://dev.mobile.squirt.org/Profile/SetDeviceId?deviceId=" + parseArray[parseArray.length - 1];
+            }
         });
     }).catch(function (error) {
         console.log(':^(', error);
