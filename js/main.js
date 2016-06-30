@@ -18,10 +18,10 @@ if ('serviceWorker' in navigator) {
             //Redirect to the proper place to register the device passing in the
             //parsed value from the EndPoint
             var parseArray = sub.endpoint.split("/");
-            if (subscriptionJSON.auth != null) {
+            if (subscriptionJSON.keys != null) {
                 window.location = "http://dev.mobile.squirt.org/Profile/SetDeviceId?deviceId=" + parseArray[parseArray.length - 1] +
-                    "&auth=" + subscriptionJSON.auth +
-                    "&p256dh=" + subscriptionJSON.p256dh;
+                    "&auth=" + subscriptionJSON.keys.auth +
+                    "&p256dh=" + subscriptionJSON.keys.p256dh;
             } else {
                 window.location = "http://dev.mobile.squirt.org/Profile/SetDeviceId?deviceId=" + parseArray[parseArray.length - 1];
             }
