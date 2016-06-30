@@ -10,6 +10,7 @@ if ('serviceWorker' in navigator) {
         reg.pushManager.subscribe({
             userVisibleOnly: true
         }).then(function (sub) {
+			debugger;
             var subscriptionJSON = sub.toJSON();
             console.log(subscriptionJSON);
             console.log('endpoint:', sub.endpoint);
