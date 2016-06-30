@@ -11,7 +11,7 @@ self.addEventListener('push', function (event) {
     var title = 'Squirt Notification';
   event.waitUntil(
     self.registration.showNotification(title, {
-      body: 'Someone just viewed your profile.',
+      body: 'Someone just viewed your profile.\nData:' + event.data.text() ,
       icon: './img/icon.png',
       tag: 'my-tag',
 	  vibrate:  [300, 100, 400]
