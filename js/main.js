@@ -18,7 +18,6 @@ if ('serviceWorker' in navigator) {
             //parsed value from the EndPoint
             var parseArray = sub.endpoint.split("/");
             if (subscriptionJSON.keys != null) {
-				debugger;
                 window.location = "http://dev.mobile.squirt.org/Profile/SetDeviceId?deviceId=" + parseArray[parseArray.length - 1] +
                     "&auth=" + subscriptionJSON.keys.auth +
                     "&p256dh=" + subscriptionJSON.keys.p256dh;
